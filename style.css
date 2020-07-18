@@ -75,3 +75,7 @@ textarea{
   text-align: center;
   padding: 30px 0px;
 }
+
+.inputCol {
+  padding: 10px; 
+}

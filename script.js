@@ -1,8 +1,24 @@
 //open the planner: current date and time is displayed
-$("#currentTime").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+//created function for consistent time update
+function renderClock() {
+    $("#currentTime").text(moment().format('MMMM Do YYYY, h:mm:ss a'))
+}
+
+setInterval(renderClock, 1000)
+
+//create a time block
 var timeBlockMarkup = "<div></div>";
-for (var i=0; i < 24; i++) {
-    var hourMarkup = i +1;
+for (var i=1; i <= 24; i++) {
+    var hourMarkup = `${i} am`;
+    if (i == 12) {
+        hourMarkup = `${i} pm`;
+    }
+    if (i > 12) {
+        hourMarkup = `${i-12} pm`; 
+        if (i === 24) {
+            hourMarkup = "12 am";
+        }
+    }
     timeBlockMarkup += 
     `<div class="row"> 
     <div class="col-sm-1 hourCol" id="${i}">${hourMarkup}</div>
@@ -11,19 +27,23 @@ for (var i=0; i < 24; i++) {
     </div>`
 }
 $("#timeBlockContainer").append(timeBlockMarkup)
-//create a time block
-
-//present in military time
-
-//create blocks for business hours
 
 //color code time block for past, present and future
 var currentHour = moment().hour(); // Number
 console.log(currentHour)
 $(`#input-${currentHour}`).addClass("present")
-// Use for loop to add future class to hours above current hour
 
-//Use for loop to add past class to previous hours
+// Use for loop to add past and future color coding
+for (var i = 1; i <= 24; i++) {
+    if (i < currentHour) {
+        $(`#input-${i}`).addClass("past")
+    }
+    if (i > currentHour) {
+        $(`#input-${i}`).addClass("future")
+    }
+}
+
+
 
 //user can enter an event
 

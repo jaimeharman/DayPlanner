@@ -67,16 +67,13 @@ function updateTimeBlocks() {
 //value of that input when save button is pressed
 $(".saveBtn").click(function () {
   var inputId = $(this).attr("data-hour");
-  console.log(inputId);
   var userInput = $(`#input-${inputId}-text`).val();
-  console.log(userInput);
   saveToLocalStorage(userInput, inputId);
 });
 
 //event saved in local storage
 var noteArray = [];
 function saveToLocalStorage(userInput, inputId) {
-  console.log("in save to local storage");
   var noteObject = {
     note: userInput,
     hour: inputId,

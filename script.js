@@ -7,23 +7,16 @@ var startingHour = date.getHours();
 
 //created function for consistent time update
 function renderClock() {
-  $("#currentTime").text(moment().format('LLLL'));
+  $("#currentTime").text(moment().format("LLLL"));
 
   if (currentHour > startingHour) {
     updateTimeBlocks();
   }
 }
 
-$(document).keypress(function (event) {
-  var keycode = event.keyCode ? event.keyCode : event.which;
-  if (keycode == "13") {
-    currentHour++;
-  }
-});
-
 setInterval(renderClock, 1000);
 
-//create a time block
+//create a time block for all hours of day
 var timeBlockMarkup = "<div></div>";
 for (var i = 1; i <= 24; i++) {
   var hourMarkup = `${i} am`;
@@ -38,14 +31,17 @@ for (var i = 1; i <= 24; i++) {
   }
 
   //user can enter an event in time blocks
+  //save button is at end of time block
   timeBlockMarkup += `<div class="row time-block"> 
     <div class="col-2 hourCol" id="${i}">${hourMarkup}</div>
     <div class="col-8 inputCol" id="input-${i}"><textarea id="input-${i}-text" style="width: 100%; border-left: 0px !important;"></textarea></div>
     <div class="col-2 saveBtn" id="saveBtn-${i}" data-hour="${i}"><i class="fa fa-lock"></i></div>
     </div>`;
 }
+
 $("#timeBlockContainer").append(timeBlockMarkup);
 
+//call functions
 updateTimeBlocks();
 getFromLocalStorage();
 

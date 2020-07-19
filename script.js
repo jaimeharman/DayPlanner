@@ -7,7 +7,7 @@ var startingHour = date.getHours();
 
 //created function for consistent time update
 function renderClock() {
-  $("#currentTime").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  $("#currentTime").text(moment().format('LLLL'));
 
   if (currentHour > startingHour) {
     updateTimeBlocks();
@@ -38,10 +38,10 @@ for (var i = 1; i <= 24; i++) {
   }
 
   //user can enter an event in time blocks
-  timeBlockMarkup += `<div class="row"> 
-    <div class="col-sm-1 hourCol" id="${i}">${hourMarkup}</div>
-    <div class="col-sm-10 inputCol" id="input-${i}"><textarea id="input-${i}-text" style="width: 100%; border-left: 0px !important;"></textarea></div>
-    <div class="col-sm-1 saveBtn" id="saveBtn-${i}" data-hour="${i}"><i class="fa fa-lock"></i></div>
+  timeBlockMarkup += `<div class="row time-block"> 
+    <div class="col-2 hourCol" id="${i}">${hourMarkup}</div>
+    <div class="col-8 inputCol" id="input-${i}"><textarea id="input-${i}-text" style="width: 100%; border-left: 0px !important;"></textarea></div>
+    <div class="col-2 saveBtn" id="saveBtn-${i}" data-hour="${i}"><i class="fa fa-lock"></i></div>
     </div>`;
 }
 $("#timeBlockContainer").append(timeBlockMarkup);
@@ -80,7 +80,7 @@ $(".saveBtn").click(function () {
 //event saved in local storage
 var noteArray = [];
 function saveToLocalStorage(userInput, inputId) {
-    console.log("in save to local storage")
+  console.log("in save to local storage");
   var noteObject = {
     note: userInput,
     hour: inputId,
@@ -91,11 +91,10 @@ function saveToLocalStorage(userInput, inputId) {
 
 //refresh the page and saved information stays in place
 function getFromLocalStorage() {
-    if (localStorage.getItem("notes") !== null) {
-        var storageNotes = JSON.parse(window.localStorage.getItem("notes"));
-        for (var i = 0; i < storageNotes.length; i++) {
-            $(`#input-${storageNotes[i].hour}-text`).val(storageNotes[i].note);
-        }
+  if (localStorage.getItem("notes") !== null) {
+    var storageNotes = JSON.parse(window.localStorage.getItem("notes"));
+    for (var i = 0; i < storageNotes.length; i++) {
+      $(`#input-${storageNotes[i].hour}-text`).val(storageNotes[i].note);
     }
+  }
 }
-

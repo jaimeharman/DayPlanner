@@ -18,5 +18,7 @@ Screenshot of Project:
 
 ![Day Planner](assets/images/calendar.PNG)
 
+![Day Planner](assets/images/calendar2.PNG)
+
 
 

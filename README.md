@@ -10,5 +10,5 @@ Create a simple calendar application that allows the user to save events for eac
 - When user clicks into time block, they can enter an event and click save icon
 - The event is saved to local storage and when user refreshes the page, the event remains on display.
 
-Used Moment.js for time format: <https://momentjs.com>;
+Resources: Moment.js for time format: <https://momentjs.com>;
 

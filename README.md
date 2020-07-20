@@ -16,4 +16,4 @@ Screenshot of Project:
 
 ![Day Planner](/assets/calendar.PNG)
 
-![Day Planner](/assets/calendar2.png)
+

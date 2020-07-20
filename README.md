@@ -14,6 +14,6 @@ Resources: Moment.js for time format: <https://momentjs.com>;
 
 Screenshot of Project: 
 
-![Day Planner](/assets/calendar.PNG)
+![Day Planner](assets/images/calendar.PNG)
 
 

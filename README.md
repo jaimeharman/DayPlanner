@@ -12,11 +12,11 @@ Create a simple calendar application that allows the user to save events for eac
 
 Resources: Moment.js for time format: <https://momentjs.com>;
 
-<<<<<<< HEAD
+
 =======
 Screenshot of Project: 
 
 ![Day Planner](assets/images/calendar.PNG)
 
 
->>>>>>> 32bfe52f0b171c0936b3ba3162b13cbd965c6e31
+

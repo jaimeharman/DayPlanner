@@ -11,8 +11,7 @@ Create a simple calendar application that allows the user to save events for eac
 - The event is saved to local storage and when user refreshes the page, the event remains on display.
 
 Resources: Moment.js for time format: <https://momentjs.com>;
-<<<<<<< HEAD
-=======
+
 
 
 Screenshot of Project: 
@@ -20,7 +19,3 @@ Screenshot of Project:
 ![Day Planner](assets/images/calendar.PNG)
 
 ![Day Planner](assets/images/calendar2.PNG)
-
-
-
->>>>>>> 2463bb5bc6019cfc142ec07a60637a570b658653
